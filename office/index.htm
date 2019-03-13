@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="../portfolio.css" />
+<link rel="stylesheet"  
+href="../nivoslider.css" type="text/css" media="screen" />
+
+
+<link rel="SHORTCUT ICON" href="top.ico" type="../image/icon"/>
+
+<script type="text/javascript"  
+src="../jquery.min.js"></script>
+<script type="text/javascript" src="../scrolling.js"></script>
+<script src="../jquery.nivo.slider.pack.js"  
+type="text/javascript"></script>
+<script type="text/javascript">
+$(window).load(function() {
+    $('#slider').nivoSlider({
+			effect:'fade', //Specify sets like: 'random,fold,fade,sliceDown'
+			// All effects:
+			// sliceDown, sliceDownLeft, sliceUp, sliceUpLeft, sliceUpDown
+			// sliceUpDownLeft, fold, fade, random, slideInRight,
+			// slideInLeft, boxRandom, boxRain, boxRainReverse, boxRainGrow
+			// boxRainGrowReverse
+			animSpeed:500, //Slide transition speed
+			pauseTime:3000,
+			startSlide:0, //Set starting Slide (0 index)
+			directionNav:false, //Next and Prev
+			directionNavHide:true, //Only show on hover
+			controlNav:false, //1,2,3...
+			controlNavThumbs:false, //Use thumbnails for Control Nav
+			controlNavThumbsFromRel:false, //Use image rel for thumbs
+			controlNavThumbsSearch: '.jpg', //Replace this with...
+			controlNavThumbsReplace: '_thumb.jpg', //...this in thumb Image src
+			keyboardNav:false, //Use left and right arrows
+			pauseOnHover:false, //Stop animation while hovering
+			manualAdvance:false, //Force manual transitions
+			captionOpacity:0.8, //Universal caption opacity
+			beforeChange: function(){},
+			afterChange: function(){},
+			slideshowEnd: function(){} //Triggers after all slides have been shown
+    });
+});
+</script>
+<Title>J. L. Voros</title>
+</head><body>
+
+<div style="position:absolute;top:0px" id="topper"></div>
+<div style="position:fixed;top:0px; left:0px;width:100%; height:100%">
+<img src="header.jpg" width="100%">
+</div>
+
+<center>
+<div style="position:absolute;top:35%;width:100%;color:white;">
+<h1>Net Zero Office</h1>
+<a href="#about"><img src="../arrow.png" width="40px"></a>
+</div>
+</center>
+
+<div class="back_to_top">
+<a href="#topper">back to top</a>
+</div>
+
+<div class="sticky" id="menu">
+<center>
+<div class="menu_cont">
+
+<img src="../mini_logo.png" height="20px" align="left" margin="10px">
+
+
+<p class="righty">
+<A  
+href="../index.htm">HOME</a> | <a href="../index.htm#about">ABOUT</a> | <a href="../index.htm#portfolio">PORTFOLIO</a></p>
+</div>
+</center>
+</div>
+
+
+<div class="about" id="about">
+<center>
+<div class="about_cont">
+
+
+<b>Net Zero Office</b><br><br>
+
+Fall 2015 - Collaborator: Bailey Zuniga<br><br>
+
+Net Zero Office was about sustainable building. My collaborator and I set out to use a set of energy use analysis tools in order to shape our design of an office building around being as energy conservative as possible. We were presented with a plot of land in Phoenix, AZ and made use of the advantages of natural lighting and ventilation.
+</center>
+<br><br>
+<center>
+<a href="#portfolio"><img src="../arrow.png" width="40px"></a></center>
+</div>
+</center>
+</div>
+
+<div class="portfolio" id="portfolio">
+<center>
+<div class="portfolio_cont">
+<div class="portfolio_cont_cont">
+
+
+
+<center>
+<img src="6SET.jpg">
+</center>
+<br><br>
+
+In order to determine a building shape that could accomodate the number of office cubicles necessary but incur too high energy loading, we started with a base design consisting of two main buildings and iterated over. Shown above are six of the key iterations we went through, hoping that keeping the building long and thin, we would be able to take advantage of ample daylighting and less stagnant air in the interior.
+
+<bR><br><br>
+<center>
+<img src="sunlightsim.jpg">
+</center>
+<br><br><br>
+
+Shown above is the final daylighting simulation of our chosen building shape, done over normal working hours. We were able to generate an office building that could be naturally daylit over 90% of the time it would be occupied.
+
+<br><bR><br>
+<center>
+<img src="heatsim.jpg">
+</center>
+<br><br><bR>
+
+We then went through several zoning iterations in order to appropriately zone our building to best accomodate thermal regulation. Shown above is approximate window placement and heatmapped energy use throughout the building.
+
+<br><bR><br>
+<center>
+<img src="solarpanels.jpg">
+</center>
+<br><br><bR>
+
+Using PV simulations in Archsim within Rhino we were able to simulate solar panel power collection over the course of a year and thus optimize panel placement and orientation. Based on the placement of typically efficient solar cells with optimized orientation on the roof of the building, we were able to generate a design with theoretical net zero energy use.
+
+<br><bR><br>
+<center>
+<img src="energyuse.jpg">
+</center>
+<br><br><bR>
+
+We collated annual projected energy use and energy use intensity (EUI) as the design process progressed. As shown in the above graph, through thoughtful design, we were able to pull down annual expected energy use enough to offset it entirely with projected solar panel output.
+<br><bR><br>
+</div>
+</div>
+</center>
+
+<div id="footer" class="footer">
+<center>
+<div class="footer_cont"><br>
+<br>
+J. L. Voros &copy; 2016<br>
+jammie@alum.mit.edu
+</div>
+</center>
+</div>
+
+</div>
+
+
+
+
+</body>
+
+<script>
+
+var stickyOffset = $('.sticky').offset().top;
+
+$(window).scroll(function(){var sticky = $('.sticky'),scroll =  
+$(window).scrollTop();
+    
+if (scroll >= stickyOffset) sticky.addClass('fixed');
+else sticky.removeClass('fixed');
+});
+
+</script>
+
+</html>
