@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <Title>J. L. Voros</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="../portfolio.css" />
+  <link rel="SHORTCUT ICON" href="top.ico" type="../image/icon"/>
+	<!-- Add jQuery library -->
+	<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+
+	<!-- Add fancyBox main JS and CSS files -->
+	<script type="text/javascript" src="jquery.fancybox.js"></script>
+	<link rel="stylesheet" type="text/css" href="jquery.fancybox.css" media="screen" />
+
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+			$('.fancybox').fancybox();
+
+			/*
+			 *  Different effects
+			 */
+
+			// Change title type, overlay closing speed
+			$(".fancybox-effects-a").fancybox({
+				helpers: {
+					title : {
+						type : 'outside'
+					},
+					overlay : {
+						speedOut : 0
+					}
+				}
+			});
+
+			// Disable opening and closing animations, change title type
+			$(".fancybox-effects-b").fancybox({
+				openEffect  : 'none',
+				closeEffect	: 'none',
+
+				helpers : {
+					title : {
+						type : 'over'
+					}
+				}
+			});
+
+			// Set custom style, close if clicked, change title type and overlay color
+			$(".fancybox-effects-c").fancybox({
+				wrapCSS    : 'fancybox-custom',
+				closeClick : true,
+
+				openEffect : 'none',
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					overlay : {
+						css : {
+							'background' : 'rgba(238,238,238,0.85)'
+						}
+					}
+				}
+			});
+
+			// Remove padding, set opening and closing animations, close if clicked and disable overlay
+			$(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 150,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 150,
+
+				closeClick : true,
+
+				helpers : {
+					overlay : null
+				}
+			});
+
+			/*
+			 *  Button helper. Disable animations, hide close button, change title type and content
+			 */
+
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+
+
+			/*
+			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+			 */
+
+			$('.fancybox-thumbs').fancybox({
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+				arrows    : false,
+				nextClick : true,
+
+				helpers : {
+					thumbs : {
+						width  : 50,
+						height : 50
+					}
+				}
+			});
+
+			/*
+			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+			*/
+			$('.fancybox-media')
+				.attr('rel', 'media-gallery')
+				.fancybox({
+					openEffect : 'none',
+					closeEffect : 'none',
+					prevEffect : 'none',
+					nextEffect : 'none',
+
+					arrows : false,
+					helpers : {
+						media : {},
+						buttons : {}
+					}
+				});
+
+			/*
+			 *  Open manually
+			 */
+
+			$("#fancybox-manual-a").click(function() {
+				$.fancybox.open('1_b.jpg');
+			});
+
+			$("#fancybox-manual-b").click(function() {
+				$.fancybox.open({
+					href : 'iframe.html',
+					type : 'iframe',
+					padding : 5
+				});
+			});
+
+			$("#fancybox-manual-c").click(function() {
+				$.fancybox.open([
+					{
+						href : '1_b.jpg',
+						title : 'My title'
+					}, {
+						href : '2_b.jpg',
+						title : '2nd title'
+					}, {
+						href : '3_b.jpg'
+					}
+				], {
+					helpers : {
+						thumbs : {
+							width: 75,
+							height: 50
+						}
+					}
+				});
+			});
+
+
+		});
+	</script>
+	<style type="text/css">
+		.fancybox-custom .fancybox-skin {
+			box-shadow: 0 0 50px #222;
+		}
+
+		body {
+			max-width: 700px;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body bgcolor="white">
+
+
+<div class="back_to_top">
+    <a href="#topper">back to top</a>
+</div>
+
+
+<div class="sticky2" id="menu">
+  <center>
+    <div class="menu_cont">
+      <img src="../mini_logo.png" height="20px" align="left" margin="10px">
+      <p class="righty">
+        <a href="../index.htm">HOME</a> | <a href="../index.htm#about">ABOUT</a> | <a href="../index.htm#portfolio">PORTFOLIO</a>
+      </p>
+    </div>
+  </center>
+</div>
+
+<div style="position: absolute; top:100px; left:10%; width:80%;">
+	<center>
+		<h1>
+			Photography
+		</h1>
+		Shot with Nikon D3200 unless otherwise stated in caption.
+	</center>
+</div>
+
+    
+<div style="position: absolute; top:210px; left:10%; width:80%;" class = "gals">
+  <table width="100%" cellspacing=10px cellpadding =0>
+    <tr valign="top">
+      <td width="33%" style="vertical-align:top">
+		<a class="fancybox" href="photo/pokhara.jpg" data-fancybox-group="gallery" title="Pokhara, Nepal. 2016."><img src="photo/pokhara.jpg" alt=""  width="100%"/></a>
+        <a class="fancybox" href="photo/cabinnorway.jpg" data-fancybox-group="gallery" title="Voss, Norway. 2016."><img src="photo/cabinnorway.jpg" alt=""  width="100%"/></a>
+		<a class="fancybox" href="photo/budapest.jpg" data-fancybox-group="gallery" title="Budapest, Hungary. 2016."><img src="photo/budapest.jpg" alt=""  width="100%"/></a>
+		<a class="fancybox" href="photo/fjord.jpg" data-fancybox-group="gallery" title="Voss, Norway. 2016."><img src="photo/fjord.jpg" alt=""  width="100%"/></a>
+		<a class="fancybox" href="photo/combal.jpg" data-fancybox-group="gallery" title="Courmayeur, Italy. 2018."><img src="photo/combal.jpg" alt="" width="100%"/></a>
+		<a class="fancybox" href="photo/birdby.jpg" data-fancybox-group="gallery" title="Exumas, Bahamas. 2013."><img src="photo/birdby.jpg" alt="" width="100%"/></a>
+		<a class="fancybox" href="photo/chancoffee.jpg" data-fancybox-group="gallery" title="Chamonix, France. 2018."><img src="photo/chancoffee.jpg" alt="" width="100%"/></a>
+		<a class="fancybox" href="photo/greatwall.png" data-fancybox-group="gallery" title="Great Wall, China, 2009. Shot with unknown."><img src="photo/greatwall.png" alt="" width="100%"/></a>
+		<a class="fancybox" href="photo/threepigs.jpg" data-fancybox-group="gallery" title="Exumas, Bahamas. 2013."><img src="photo/threepigs.jpg" alt="" width="100%"/></a>
+		<a class="fancybox" href="photo/lizard.jpg" data-fancybox-group="gallery" title="Exumas, Bahamas. 2013."><img src="photo/lizard.jpg" alt="" width="100%"/></a>
+		<a class="fancybox" href="photo/philski.jpg" data-fancybox-group="gallery" title="Aspen, USA. 2019."><img src="photo/philski.jpg" alt="" width="100%"/></a>
+
+	</td>
+
+      <td width="33%" style="vertical-align:top">
+		<a class="fancybox" href="photo/JohanniCamb.jpg" data-fancybox-group="gallery" title="Cambridge, England. 2016."><img src="photo/JohanniCamb.jpg" alt="" width="100%"/></a>
+		<a class="fancybox" href="photo/birb.jpg" data-fancybox-group="gallery" title="Exumas, Bahamas. 2013."><img src="photo/birb.jpg" alt=""  width="100%"/></a>
+		<a class="fancybox" href="photo/jumpboard.jpg" data-fancybox-group="gallery" title="Aspen, USA. 2019."><img src="photo/jumpboard.jpg" alt=""  width="100%"/></a>
+		<a class="fancybox" href="photo/montblanc.jpg" data-fancybox-group="gallery" title="Miage Glacier, Italy. 2018. Shot with GoPro Hero5"><img src="photo/montblanc.jpg" alt=""  width="100%"/></a>
+		<a class="fancybox" href="photo/exumas.jpg" data-fancybox-group="gallery" title="Exumas, Bahamas. 2013."><img src="photo/exumas.jpg" alt="" width="100%"/></a>
+		<a class="fancybox" href="photo/foodLondon.jpg" data-fancybox-group="gallery" title="London, England. 2016."><img src="photo/foodLondon.jpg" alt="" width="100%"/></a>
+		<a class="fancybox" href="photo/penguin.jpg" data-fancybox-group="gallery" title="Sydney, Australia. 2017."><img src="photo/penguin.jpg" alt="" width="100%"/></a>
+		<a class="fancybox" href="photo/fjordkayak.jpg" data-fancybox-group="gallery" title="Voss, Norway. 2016."><img src="photo/fjordkayak.jpg" alt="" width="100%"/></a>
+		<a class="fancybox" href="photo/joeself.jpg" data-fancybox-group="gallery" title="Rome, Italy. 2016."><img src="photo/joeself.jpg" alt="" width="100%"/></a>
+		<a class="fancybox" href="photo/kurobe.jpg" data-fancybox-group="gallery" title="Kurobe, Japan. 2018."><img src="photo/kurobe.jpg" alt="" width="100%"/></a>
+		<a class="fancybox" href="photo/chicago.jpg" data-fancybox-group="gallery" title="Chicago, USA. 2017. Shot on OnePlus X."><img src="photo/chicago.jpg" alt=""  width="100%"/></a>
+
+
+      </td>
+
+	  <td width="33%"  style="vertical-align:top">
+		<a class="fancybox" href="photo/chamonix.jpg" data-fancybox-group="gallery" title="Chamonix, France. 2018."><img src="photo/chamonix.jpg" alt="" width="100%"/></a>
+		<a class="fancybox" href="photo/lizard2.jpg" data-fancybox-group="gallery" title="Exumas, Bahamas. 2013."><img src="photo/lizard2.jpg" alt="" width="100%"/></a>
+		<a class="fancybox" href="photo/karakoram.jpg" data-fancybox-group="gallery" title="Karakoram Mountain Range, Pakistan. 2018. Shot on GoPro Hero5."><img src="photo/karakoram.jpg" alt="" width="100%"/></a>
+		<a class="fancybox" href="photo/scarlett.jpg" data-fancybox-group="gallery" title="Voss, Norway. 2016."><img src="photo/scarlett.jpg" alt=""  width="100%"/></a>	
+		<a class="fancybox" href="photo/AFF.jpg" data-fancybox-group="gallery" title="Moruya, Australia. 2018. Shot with GoPro Hero4."><img src="photo/AFF.jpg" alt=""  width="100%"/></a>
+		<a class="fancybox" href="photo/pantheon.jpg" data-fancybox-group="gallery" title="Rome. Italy. 2016."><img src="photo/pantheon.jpg" alt=""  width="100%"/></a>
+		<a class="fancybox" href="photo/selfportrait.jpg" data-fancybox-group="gallery" title="Sydney, Australia. 2017. Self portrait."><img src="photo/selfportrait.jpg" alt="" width="100%"/></a>
+		<a class="fancybox" href="photo/charlie.jpg" data-fancybox-group="gallery" title="Puddletown, England. 2013."><img src="photo/charlie.jpg" alt="" width="100%"/></a>
+		<a class="fancybox" href="photo/jumpski.jpg" data-fancybox-group="gallery" title="Aspen, USA. 2019."><img src="photo/jumpski.jpg" alt="" width="100%"/></a>
+		<a class="fancybox" href="photo/selfportsyd.jpg" data-fancybox-group="gallery" title="Bronte, Australia. 2017. Self portrait."><img src="photo/selfportsyd.jpg" alt="" width="100%"/></a>
+		<a class="fancybox" href="photo/pig.jpg" data-fancybox-group="gallery" title="Exumas, Bahamas. 2013."><img src="photo/pig.jpg" alt="" width="100%"/></a>
+
+		</td>
+
+
+
+
+    </tr>
+
+  </table>
+</div>
+</body>
+</html>
