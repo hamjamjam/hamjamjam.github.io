@@ -184,7 +184,7 @@ letter-spacing:2px;
 }
 
 .img1:hover p, .img2:hover p, .img3:hover p, .img4:hover p, .img5:hover p, .img6:hover p,  
-.img7:hover p, .img8:hover p, .img9:hover p, .img10:hover p, .img11:hover p, .img12:hover p, .img13:hover p, .img14:hover p, .img15:hover p{
+.img7:hover p, .img8:hover p, .img9:hover p, .img10:hover p, .img11:hover p, .img12:hover p, .img13:hover p, .img14:hover p, .img15:hover p, .img16:hover p,.img17:hover p{
 visibility: visible;
 z-index: 9000;
 color: #ddd;
@@ -240,8 +240,16 @@ background-image: url('tiles/tile_power.png');
 background-image: url('tiles/tile_brainstim.png');
 }
 
+.img16{
+	background-image: url('tiles/tile_bwb.png');
+}
+
+.img17{
+	background-image: url('tiles/tile_bioabstro.png');
+}
+
 .img1:hover,.img2:hover,.img3:hover,.img4:hover,.img5:hover,.img6:hover,.img7:hover,.img8:hover, 
-.img9:hover,.img10:hover,.img11:hover, .img12:hover, .img13:hover, .img14:hover, .img15:hover{
+.img9:hover,.img10:hover,.img11:hover, .img12:hover, .img13:hover,.img14:hover,.img15:hover,.img16:hover,.img17:hover{
 cursor: pointer;
 opacity: 0.5;
 -webkit-transition: opacity;
